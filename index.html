@@ -1,56 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produit 3D</title>
+    <title>T-shirt Blanc en Coton - 5000 FCFA</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body { margin: 0; }
-        canvas { display: block; }
+        /* Ajoutez des styles personnalisés ici si nécessaire */
     </style>
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <header>
+        <h1>T-shirt Blanc en Coton</h1>
+        <p>Prix : <strong>5000 FCFA</strong></p>
+    </header>
+
+    <main>
+        <section class="product-display">
+            <div class="product-image">
+                <img src="tshirt.jpg" alt="T-shirt Blanc en Coton" class="animated-image">
+            </div>
+            <div class="product-details">
+                <h2>Description du Produit</h2>
+                <p>
+                    Ce t-shirt blanc en coton est un incontournable de votre garde-robe. Conçu pour un confort optimal, il est parfait pour toutes les occasions.
+                </p>
+                <ul>
+                    <li><strong>Matériau :</strong> 100% Coton</li>
+                    <li><strong>Taille :</strong> Unique (convient à toutes les morphologies)</li>
+                    <li><strong>Couleur :</strong> Blanc</li>
+                    <li><strong>Entretien :</strong> Lavable en machine</li>
+                </ul>
+                <button class="cta-button">Acheter Maintenant</button>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2>Pourquoi choisir ce t-shirt ?</h2>
+            <div class="feature-item">
+                <h3>Confort Inégalé</h3>
+                <p>Le coton doux et respirant assure un confort tout au long de la journée.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Style Polyvalent</h3>
+                <p>Idéal pour un look décontracté ou habillé, ce t-shirt s'adapte à toutes les situations.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Durabilité</h3>
+                <p>Fabriqué avec des matériaux de haute qualité pour une longue durée de vie.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Votre Marque. Tous droits réservés.</p>
+    </footer>
+
     <script>
-        // Scene
-        const scene = new THREE.Scene();
-
-        // Camera
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 5;
-
-        // Renderer
-        const renderer = new THREE.WebGLRenderer();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-
-        // Lighting
-        const light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(1, 1, 1).normalize();
-        scene.add(light);
-
-        // Load 3D model
-        const loader = new THREE.GLTFLoader();
-        loader.load('assets/models/produit.glb', function (gltf) {
-            const model = gltf.scene;
-            scene.add(model);
-        }, undefined, function (error) {
-            console.error(error);
-        });
-
-        // Animation loop
-        function animate() {
-            requestAnimationFrame(animate);
-            renderer.render(scene, camera);
-        }
-        animate();
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
+        // Ajoutez des animations JavaScript ici si nécessaire
     </script>
 </body>
 </html>
