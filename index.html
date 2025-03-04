@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T-shirt en 3D</title>
     <style>
-        body { margin: 0; }
-        canvas { display: block; }
+        body {
+            margin: 0;
+            overflow: hidden; /* Masque les barres de défilement */
+        }
+        canvas {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -16,6 +21,7 @@
     <script>
         // Scene
         const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0000FF); // Fond bleu
 
         // Camera
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -33,9 +39,15 @@
 
         // Load 3D model
         const loader = new THREE.GLTFLoader();
-        loader.load('product.glb', function (gltf) {
+        loader.load('tshirt.glb', function (gltf) {
             const model = gltf.scene;
             scene.add(model);
+
+            // Centrer le modèle dans la scène
+            const box = new THREE.Box3().setFromObject(model);
+            const center = new THREE.Vector3();
+            box.getCenter(center);
+            model.position.sub(center); // Déplacer le modèle au centre
         }, undefined, function (error) {
             console.error(error);
         });
